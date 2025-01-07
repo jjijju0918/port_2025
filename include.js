@@ -21,11 +21,13 @@ window.addEventListener('load', function() {
     });
 });
 
-// 메뉴 이동 및 해당 섹션일 경우 active 추가
+// 메뉴 초기화 및 스크롤 위치에 따른 메뉴 active 추가, 헤더 색상 변경
 function initializeMenu() {
     const menuItems = document.querySelectorAll('.menu-item');
-    const sections = document.querySelectorAll('main > div.section');
+    const sections = document.querySelectorAll('.section');  // 섹션 요소 가져오기
+    const header = document.querySelector('.header_box');  // 헤더 요소 가져오기
 
+    // 메뉴 클릭 시 해당 섹션으로 부드럽게 스크롤
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
             // 모든 메뉴 항목에서 active 클래스 제거
@@ -46,13 +48,15 @@ function initializeMenu() {
     // 스크롤 이벤트 리스너 추가
     window.addEventListener('scroll', () => {
         let currentSection = '';
+        let scrollPosition = window.scrollY;
 
+        // 현재 스크롤 위치에 해당하는 섹션 찾기
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
 
             // 현재 스크롤 위치가 섹션의 위쪽과 아래쪽 사이에 있는지 확인
-            if (pageYOffset >= sectionTop - sectionHeight / 3) {
+            if (scrollPosition >= sectionTop - sectionHeight / 3) {
                 currentSection = section.getAttribute('id');
             }
         });
@@ -64,6 +68,13 @@ function initializeMenu() {
                 item.classList.add('active');
             }
         });
+
+        // 헤더 색상 변경
+        const section2 = document.querySelector('#section-2'); // 두 번째 섹션
+        if (scrollPosition >= section2.offsetTop) {
+            header.classList.add('active'); // 배경색을 변경할 클래스 추가
+        } else {
+            header.classList.remove('active'); // 기본 배경색으로 되돌리기
+        }
     });
 }
-

@@ -32,24 +32,24 @@ ul, li {
   justify-content: space-between;
   align-items: center;
   background-color: rgba(132, 141, 146, 0.116);
+  transition: background-color 0.3s ease;
 }
-
+.header_box.active {
+  background-color: rgba(37, 37, 37, 0.349);
+}
 .header_box img {
   padding: 0.75rem 0;
 }
-
 .header_box nav ul {
   display: flex;
   text-align: center;
   padding: 0 5rem;
 }
-
 .header_box nav ul li {
   padding: 0 10px;
   width: 100px;
   transition: background-color 0.3s ease;
 }
-
 .header_box nav ul li a {
   position: relative;
   display: inline-block;
@@ -59,11 +59,9 @@ ul, li {
   text-decoration-line: none;
   color: var(--azure-color);
 }
-
 .header_box nav ul li.active a {
   color: var(--hsla-color);
 }
-
-.header_box nav ul li.active, .header_box nav ul li:hover a {
+.header_box nav ul li:hover a {
   color: var(--hsla-color);
 }
