@@ -10,19 +10,51 @@ body {
   display: none;
 }
 
+.widrh {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
 .section {
+  position: relative;
   width: 100vw;
   height: 100vh;
   font-size: 32px;
   text-align: center;
-  color: aliceblue;
   overflow: hidden;
 }
-.section-imgbox {
+.section-content {
+  position: relative;
   width: 100%;
   height: 100vh;
 }
-.section-imgbox img {
+.section-content .section-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  z-index: 1;
+}
+.section-content .maintext-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  padding-top: 10rem;
+  z-index: 2;
+}
+.section-content .maintext-box img {
+  width: 100%;
+  max-width: 900px;
+}
+.section .intro-text {
+  position: relative;
+  z-index: 2;
+}
+.section .intro-text p {
+  color: rgb(255, 255, 255);
+  font-size: 24px;
 }

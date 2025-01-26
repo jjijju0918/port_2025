@@ -19,44 +19,46 @@ ul, li {
 }
 
 .header_box {
-    position: fixed; 
-    top: 0; 
+    position: fixed;
+    top: 2%;
     left: 0;
     right: 0;
     display: flex;
     width: 100%;
     padding: 0 10px;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    background-color:rgba(132, 141, 146, 0.116);
     transition: background-color 0.3s ease;
+    z-index: 1000; /* z-index를 높여서 다른 요소들 위로 오도록 */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 
     &.active {
         background-color:rgba(37, 37, 37, 0.349);
     }
 
-    img {
-        padding:0.75rem 0;    
-    }
-
     nav ul {
         display: flex;
-        text-align: center;
-        padding: 0 5rem;
+        justify-content: flex-end;
+        padding: 1rem 10px;
+        border: 1px solid #333;
+        border-radius: 30px;
+        margin-right: 25px;
+        position: relative;
 
         li {
-            padding: 0 10px;
-            width: 100px;
+            margin: 0px 10px;
             transition: background-color 0.3s ease;
 
             a {
-                position:relative;
-                display:inline-block;
-                line-height:2rem;
-                font-weight: bold;
-                font-size:1.0625rem;
-                text-decoration-line: none;
+                font-size: 1.1rem;
+                white-space: nowrap;
+                font-weight: 400;
+                padding: 0 20px;
                 color: var(--azure-color);
+                cursor: pointer; /* 커서 포인터 */
+                transition: color 0.3s ease;
+                text-decoration-line: none;
+
             }
 
             &.active a {
